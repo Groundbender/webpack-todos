@@ -1,0 +1,56 @@
+.todo__item {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--secondary-color-transparent);
+  }
+}
+
+.todo__info {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.todo__title {
+  color: var(--primary-color);
+  font-size: var(--font-md);
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-default);
+}
+.todo__title_checked {
+  text-decoration: line-through;
+  color: var(--checked-color);
+}
+
+.todo__actions {
+  display: flex;
+  opacity: 0;
+  gap: 15px;
+  align-items: center;
+  transition: var(--transition-default);
+}
+
+.todo__item:hover .todo__actions {
+  opacity: 1;
+}
+
+.action__btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--icon-color);
+
+  &:hover .icon_delete {
+    color: red;
+    transition: var(--transition-default);
+  }
+  &:hover .icon_edit {
+    color: var(--secondary-color-transparent);
+  }
+}

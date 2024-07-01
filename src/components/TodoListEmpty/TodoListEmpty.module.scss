@@ -1,0 +1,19 @@
+.empty__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+
+  img {
+    text-align: center;
+  }
+}
+
+.empty__title {
+  margin-top: 20px;
+  color: var(--primary-color);
+  font-weight: 400;
+  font-size: var(--font-md);
+}
