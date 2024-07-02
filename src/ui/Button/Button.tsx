@@ -1,3 +1,4 @@
+import { classNames } from '@/helpers/classNames';
 import * as styles from './Button.module.scss'
 
 export enum ButtonTheme {
@@ -19,7 +20,7 @@ export const Button = (props: ButtonProps) => {
   const { children, theme, ...others } = props
 
   return (
-    <button className={`${styles.btn} ${styles[theme]}`} {...others}>
+    <button className={classNames(styles.btn, {}, [styles[theme]])} {...others}>
       {children}
     </button>
   )

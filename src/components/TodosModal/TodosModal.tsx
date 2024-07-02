@@ -25,7 +25,7 @@ export const TodosModal = ({ isOpen, handleCloseModal, todo }: TodosModalProps) 
     e.preventDefault();
 
 
-    if (!title) {
+    if (!title.trim()) {
       toast.error("Title is required")
       return
     }
