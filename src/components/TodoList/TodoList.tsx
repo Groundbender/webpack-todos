@@ -7,9 +7,9 @@ import * as styles from './TodoList.module.scss'
 
 interface TodoListProps {
   setSelectedTodo: (todo: Todo) => void
-  handleOpenModal: () => void
+  handleOpenTodosModal: () => void
 }
-export const TodoList = ({ setSelectedTodo, handleOpenModal }: TodoListProps) => {
+export const TodoList = ({ setSelectedTodo, handleOpenTodosModal }: TodoListProps) => {
 
   const filteredAndSearchedTodos = useAppSelector(selectFilteredAndSearchedTodos)
 
@@ -19,7 +19,7 @@ export const TodoList = ({ setSelectedTodo, handleOpenModal }: TodoListProps) =>
 
   return (
     <ul className={styles.todo__list}>
-      {filteredAndSearchedTodos.map((todo) => <TodoItem todo={todo} key={todo.id} setSelectedTodo={setSelectedTodo} handleOpenModal={handleOpenModal} />)}
+      {filteredAndSearchedTodos.map((todo) => <TodoItem todo={todo} key={todo.id} setSelectedTodo={setSelectedTodo} handleOpenTodosModal={handleOpenTodosModal} />)}
     </ul>
   )
 }

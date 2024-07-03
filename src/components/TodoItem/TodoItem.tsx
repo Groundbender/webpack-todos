@@ -9,9 +9,9 @@ import * as styles from "./TodoItem.module.scss"
 interface TodoItemProps {
   todo: Todo,
   setSelectedTodo: (todo: Todo) => void
-  handleOpenModal: () => void
+  handleOpenTodosModal: () => void
 }
-export const TodoItem = ({ todo, setSelectedTodo, handleOpenModal }: TodoItemProps) => {
+export const TodoItem = ({ todo, setSelectedTodo, handleOpenTodosModal }: TodoItemProps) => {
 
   const dispatch = useDispatch()
   const updateTodo = () => {
@@ -25,7 +25,7 @@ export const TodoItem = ({ todo, setSelectedTodo, handleOpenModal }: TodoItemPro
 
   const handleEditMode = () => {
     setSelectedTodo(todo)
-    handleOpenModal()
+    handleOpenTodosModal()
   }
 
   return (

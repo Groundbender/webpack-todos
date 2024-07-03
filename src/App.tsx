@@ -31,7 +31,7 @@ const App = () => {
           TODO LIST
         </Title>
         <Filters />
-        <TodoList handleOpenModal={handleOpenTodosModal} setSelectedTodo={setSelectedTodo} />
+        <TodoList handleOpenTodosModal={handleOpenTodosModal} setSelectedTodo={setSelectedTodo} />
         <Footer handleOpenTodosModal={handleOpenTodosModal} />
       </main>
       <TodosModal isOpen={isOpenTodosModal}
