@@ -10,9 +10,6 @@ export const selectTodosCount = (state: RootState) => state.todos.length
 export const selectActiveTodosCount = (state: RootState) => state.todos.filter((todo) => !todo.isDone).length
 export const selectDoneTodosCount = (state: RootState) => state.todos.filter((todo) => todo.isDone).length
 
-
-
-
 export const selectFilteredAndSearchedTodos = createSelector(getAllTodos, selectSearchValue, selectActiveFilter, (todos, search, filter) => {
 
   let filteredTodos = [];
@@ -34,8 +31,7 @@ export const selectFilteredAndSearchedTodos = createSelector(getAllTodos, select
   if (!search) {
     return filteredTodos
   }
-
+  
   return filteredTodos.filter((todo) => todo.title.toLowerCase().includes(search.toLowerCase()))
-
 })
 

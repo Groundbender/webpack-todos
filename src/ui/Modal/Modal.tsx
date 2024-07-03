@@ -16,7 +16,6 @@ export const Modal = ({ children, isOpen, handleCloseModal }: ModalProps) => {
     handleCloseModal(event)
   }
 
-
   return createPortal(
     <div className={classNames(styles.modal, {
       [styles.modal__opened]: isOpen
@@ -25,9 +24,8 @@ export const Modal = ({ children, isOpen, handleCloseModal }: ModalProps) => {
         <div onClick={event => event.stopPropagation()} className={styles.modal__content}>
           {children}
         </div>
-
       </div>
-    </div >,
+    </div>,
     document.body
   )
 }

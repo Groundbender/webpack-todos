@@ -8,7 +8,6 @@ type Option = {
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: Option[]
 }
-
 export const Select = (props: SelectProps) => {
 
   const { options, ...others } = props

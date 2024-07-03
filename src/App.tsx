@@ -12,38 +12,31 @@ import { Toaster } from "react-hot-toast"
 
 const App = () => {
 
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [isOpenTodosModal, setIsOpenTodosModal] = useState<boolean>(false);
   const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null);
   const todosCount = useAppSelector(selectTodosCount)
-
-
-  const handleOpenModal = () => {
-    setIsOpenModal(true)
+  const handleOpenTodosModal = () => {
+    setIsOpenTodosModal(true)
   }
-  const handleCloseModal = () => {
-    setIsOpenModal(false)
+  const handleCloseTodosModal = () => {
+    setIsOpenTodosModal(false)
     setSelectedTodo(null)
   }
 
   return (
     <div className="app">
       {todosCount !== 0 && <Statistics key={todosCount} />}
-
-
       <main className="container">
         <Title>
           TODO LIST
         </Title>
-
         <Filters />
-
-        <TodoList handleOpenModal={handleOpenModal} setSelectedTodo={setSelectedTodo} />
-
-        <Footer handleOpenModal={handleOpenModal} />
+        <TodoList handleOpenModal={handleOpenTodosModal} setSelectedTodo={setSelectedTodo} />
+        <Footer handleOpenTodosModal={handleOpenTodosModal} />
       </main>
-      <TodosModal isOpen={isOpenModal}
-        handleCloseModal={handleCloseModal}
-        todo={selectedTodo}
+      <TodosModal isOpen={isOpenTodosModal}
+        handleCloseModal={handleCloseTodosModal}
+        selectedTodo={selectedTodo}
         key={selectedTodo?.id || 0}
       />
       <Toaster

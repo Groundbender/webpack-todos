@@ -1,5 +1,4 @@
 import { Input } from "@/ui/Input"
-import * as styles from "./Filters.module.scss"
 import { Select } from "@/ui/Select"
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher"
 import { useDispatch } from "react-redux"
@@ -13,6 +12,7 @@ import { setSearch } from "@/store/search/search-actions"
 import { setFilter } from "@/store/filter/filter-actions"
 import { clearTodos } from "@/store/todos/todos-actions"
 import { getAllTodos } from "@/store/todos/todos-selectors"
+import * as styles from "./Filters.module.scss"
 
 const selectOptions = [
   {
@@ -28,30 +28,27 @@ const selectOptions = [
     label: "Done"
   }
 ]
-
-
 export const Filters = () => {
 
   const [isShakingClass, setIsShakingClass] = useState("")
   const dispatch = useDispatch();
 
-  const todos = useAppSelector(getAllTodos)
+  const allTodos = useAppSelector(getAllTodos)
 
-  const activeFilter = useAppSelector(selectActiveFilter);
+  const sortFilter = useAppSelector(selectActiveFilter);
 
   const searchValue = useAppSelector(selectSearchValue);
 
-  const onFilter = (e: ChangeEvent) => {
+  const handleSortTodos = (e: ChangeEvent) => {
     dispatch(setFilter((e.target as HTMLSelectElement).value as FilterType))
   }
 
-  const onSearch = (e: ChangeEvent) => {
+  const handleSearchTodos = (e: ChangeEvent) => {
     dispatch(setSearch((e.target as HTMLInputElement).value))
   }
 
-
-  const onClear = () => {
-    if (!todos.length) {
+  const onClearShakingClass = () => {
+    if (!allTodos.length) {
       setIsShakingClass("shake")
 
       setTimeout(() => {
@@ -62,21 +59,19 @@ export const Filters = () => {
     dispatch(clearTodos())
   }
 
-
   return (
     <div className={styles.filters__container}>
-
       <div className={styles.filters__search}>
-        <Input value={searchValue} onChange={onSearch} type="search" className={isShakingClass} />
+        <Input value={searchValue} onChange={handleSearchTodos} type="search" className={isShakingClass} />
       </div>
       <div >
-        <Select options={selectOptions} value={activeFilter} onChange={onFilter} />
+        <Select options={selectOptions} value={sortFilter} onChange={handleSortTodos} />
       </div>
       <div>
         <ThemeSwitcher />
       </div>
       <div>
-        <ClearToggler clearAllTodos={onClear} />
+        <ClearToggler clearAllTodos={onClearShakingClass} />
       </div>
     </div>
   )

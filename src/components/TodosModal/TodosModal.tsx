@@ -1,7 +1,6 @@
 import { Modal } from "@/ui/Modal"
 import { Title } from "../Title"
 import { Input } from "@/ui/Input"
-
 import { Button, ButtonTheme } from "@/ui/Button"
 import { SyntheticEvent, useState } from "react"
 import { useDispatch } from "react-redux"
@@ -11,64 +10,55 @@ import * as styles from './TodosModal.module.scss'
 
 interface TodosModalProps {
   isOpen: boolean,
-
   handleCloseModal: () => void,
-  todo: Todo | null
+  selectedTodo: Todo | null
 }
-
-export const TodosModal = ({ isOpen, handleCloseModal, todo }: TodosModalProps) => {
-  const [title, setTitle] = useState<string>(() => todo?.title || "")
+export const TodosModal = ({ isOpen, handleCloseModal, selectedTodo }: TodosModalProps) => {
+  const [todoTitle, setTodoTitle] = useState<string>(() => selectedTodo?.title || "")
 
   const dispatch = useDispatch()
 
-  const handleSubmit = (e: SyntheticEvent) => {
+  const handleAddTodo = (e: SyntheticEvent) => {
     e.preventDefault();
 
-
-    if (!title.trim()) {
+    if (!todoTitle.trim()) {
       toast.error("Title is required")
       return
     }
 
-
-    if (todo) {
-      dispatch(editTodo({ id: todo.id, title }))
+    if (selectedTodo) {
+      dispatch(editTodo({ id: selectedTodo.id, title: todoTitle }))
       toast.success("Todo successfully updated")
     } else {
-      dispatch(addTodo(title))
+      dispatch(addTodo(todoTitle))
       toast.success("Todo successfully added")
     }
 
-
     handleCloseModal()
-    setTitle("")
+    setTodoTitle("")
   }
 
-  const closeModal = () => {
+  const closeTodosModal = () => {
     handleCloseModal()
-    setTitle("")
+    setTodoTitle("")
   }
-
-
 
   return (
-    <Modal isOpen={isOpen} handleCloseModal={closeModal}>
+    <Modal isOpen={isOpen} handleCloseModal={closeTodosModal}>
       <>
         <Title>
-          {todo ? "EDIT NOTE" : "ADD NOTE"}
+          {selectedTodo ? "EDIT NOTE" : "ADD NOTE"}
         </Title>
-        <form onSubmit={handleSubmit}>
-          <Input value={title} onChange={(e) => setTitle(e.target.value)} />
-
+        <form onSubmit={handleAddTodo}>
+          <Input value={todoTitle} onChange={(e) => setTodoTitle(e.target.value)} />
           <div className={styles.modal__footer}>
-            <Button type="button" onClick={closeModal} theme={ButtonTheme.OUTLINE}>
+            <Button type="button" onClick={closeTodosModal} theme={ButtonTheme.OUTLINE}>
               <span className="btn-text">CANCEL</span>
             </Button>
             <Button type="submit" theme={ButtonTheme.PRIMARY}>
               <span className="btn-text">APPLY</span>
             </Button>
           </div>
-
         </form>
       </>
     </Modal>

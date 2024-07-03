@@ -7,14 +7,10 @@ export enum ButtonTheme {
   SQUARE = 'square',
   ROUNED = 'rounded'
 }
-
-
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   theme: ButtonTheme;
 }
-
-
 export const Button = (props: ButtonProps) => {
 
   const { children, theme, ...others } = props

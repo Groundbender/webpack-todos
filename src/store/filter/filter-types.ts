@@ -1,8 +1,6 @@
 export enum FilterActionTypes {
   SET_FILTER = "SET_FILTER",
 }
-
-
 interface SetFilterAction {
   type: FilterActionTypes
   payload: FilterType

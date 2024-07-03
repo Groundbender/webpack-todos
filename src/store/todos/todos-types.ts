@@ -7,7 +7,7 @@ export enum ActionTypes {
   
 }
 
-
+export const LOCAL_STORAGE_TODOS_KEY = "todos"
 interface AddTodoAction {
   type: ActionTypes.ADD_TODO
   payload: string

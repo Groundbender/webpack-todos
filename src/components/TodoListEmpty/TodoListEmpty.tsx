@@ -6,7 +6,6 @@ import * as styles from "./TodoListEmpty.module.scss"
 export const TodoListEmpty = () => {
   const { theme } = useTheme()
   return (
-
     <>
       <div className={styles.empty__container}>
         {theme === Theme.DARK

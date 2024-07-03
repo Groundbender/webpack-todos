@@ -10,8 +10,9 @@ export const ThemeSwitcher = () => {
   return (
     <Button onClick={toggleTheme} theme={ButtonTheme.SQUARE} >
       {
-        theme === Theme.DARK ?
-          <LightIcon width={20} height={20} /> : <DarkIcon width={20} height={20} />
+        theme === Theme.DARK
+          ? <LightIcon width={20} height={20} />
+          : <DarkIcon width={20} height={20} />
       }
     </Button>
   )
