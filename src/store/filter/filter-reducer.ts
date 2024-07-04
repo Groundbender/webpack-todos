@@ -1,6 +1,6 @@
 import { FilterActionTypes, FilterActions } from "./filter-types";
 
-export const sortFilter = (state = "all", action: FilterActions) => {
+export const sortTodosFilter = (state = "all", action: FilterActions) => {
   switch (action.type) {
     case FilterActionTypes.SET_FILTER:
       return action.payload;
