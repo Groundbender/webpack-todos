@@ -1,19 +1,16 @@
  // Подключаем модуль path для работы с путями файлов
- import path from 'path';
+import path from 'path';
  // Подключаем плагин HtmlWebpackPlugin для генерации HTML-файла
- import HtmlWebpackPlugin from 'html-webpack-plugin'; 
+import HtmlWebpackPlugin from 'html-webpack-plugin'; 
  // Импортируем интерфейс Configuration из модуля webpack
- import { Configuration as WebpackConfiguration, ProvidePlugin } from "webpack";
+import { Configuration as WebpackConfiguration, ProvidePlugin } from "webpack";
 import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
-
-
- 
- const config: Configuration = {
+const config: Configuration = {
    entry: './src/index.tsx', // Указываем точку входа для сборки
    output: {
      path: path.resolve(__dirname, 'dist'), // Указываем путь для выходных файлов
@@ -75,8 +72,7 @@ interface Configuration extends WebpackConfiguration {
               }
              ]
             }
-
-           }
+          }
          } 
         ],
       }

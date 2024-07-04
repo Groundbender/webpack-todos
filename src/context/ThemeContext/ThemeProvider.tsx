@@ -12,12 +12,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   const [theme, setTheme] = useState<Theme>(themeFromLocalStorage as Theme);
 
-  const defaultProps = useMemo(() => ({
+  const defaultThemeProps = useMemo(() => ({
     theme, setTheme
   }), [theme])
 
   return (
-    <ThemeContext.Provider value={defaultProps}>
+    <ThemeContext.Provider value={defaultThemeProps}>
       {children}
     </ThemeContext.Provider>
   )

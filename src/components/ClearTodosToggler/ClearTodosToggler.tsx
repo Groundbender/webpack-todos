@@ -1,9 +1,9 @@
 import { Button, ButtonTheme } from "@/ui/Button"
 
-interface ClearTogglerProps {
+interface ClearTodosTogglerProps {
   clearAllTodos: () => void
 }
-export const ClearToggler = ({ clearAllTodos }: ClearTogglerProps) => {
+export const ClearTodosToggler = ({ clearAllTodos }: ClearTodosTogglerProps) => {
 
   return (
     <Button onClick={clearAllTodos} theme={ButtonTheme.OUTLINE}>

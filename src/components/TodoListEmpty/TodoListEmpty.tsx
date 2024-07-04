@@ -4,7 +4,9 @@ import EmptyLight from "../../assets/empty-light.png"
 import { Theme } from "@/context/ThemeContext/ThemeContext"
 import * as styles from "./TodoListEmpty.module.scss"
 export const TodoListEmpty = () => {
+
   const { theme } = useTheme()
+
   return (
     <>
       <div className={styles.empty__container}>

@@ -23,7 +23,7 @@ export const TodoItem = ({ todo, setSelectedTodo, handleOpenTodosModal }: TodoIt
     toast.success("Todo successfully deleted")
   }
 
-  const handleEditMode = () => {
+  const handleTodoEditMode = () => {
     setSelectedTodo(todo)
     handleOpenTodosModal()
   }
@@ -37,7 +37,7 @@ export const TodoItem = ({ todo, setSelectedTodo, handleOpenTodosModal }: TodoIt
         </p>
       </div>
       <div className={styles.todo__actions}>
-        <button onClick={() => handleEditMode()} className={styles.action__btn}>
+        <button onClick={handleTodoEditMode} className={styles.action__btn}>
           <EditIcon className={styles.icon_edit} width={17} height={17} />
         </button>
         <button onClick={removeTodo} className={styles.action__btn}>

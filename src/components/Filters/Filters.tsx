@@ -7,7 +7,7 @@ import { useAppSelector } from "@/hooks/useAppSelector"
 import { ChangeEvent, useState } from "react"
 import { selectSearchValue } from "@/store/search/search-selectors"
 import { FilterType } from "@/store/filter/filter-types"
-import { ClearToggler } from "../ClearToggler"
+import { ClearTodosToggler } from "../ClearTodosToggler"
 import { setSearch } from "@/store/search/search-actions"
 import { setFilter } from "@/store/filter/filter-actions"
 import { clearTodos } from "@/store/todos/todos-actions"
@@ -35,9 +35,9 @@ export const Filters = () => {
 
   const allTodos = useAppSelector(getAllTodos)
 
-  const sortFilter = useAppSelector(selectActiveFilter);
+  const sortTodosFilter = useAppSelector(selectActiveFilter);
 
-  const searchValue = useAppSelector(selectSearchValue);
+  const searchTodosValue = useAppSelector(selectSearchValue);
 
   const handleSortTodos = (e: ChangeEvent) => {
     dispatch(setFilter((e.target as HTMLSelectElement).value as FilterType))
@@ -62,16 +62,16 @@ export const Filters = () => {
   return (
     <div className={styles.filters__container}>
       <div className={styles.filters__search}>
-        <Input value={searchValue} onChange={handleSearchTodos} type="search" className={isShakingClass} />
+        <Input value={searchTodosValue} onChange={handleSearchTodos} type="search" className={isShakingClass} />
       </div>
       <div >
-        <Select options={selectOptions} value={sortFilter} onChange={handleSortTodos} />
+        <Select options={selectOptions} value={sortTodosFilter} onChange={handleSortTodos} />
       </div>
       <div>
         <ThemeSwitcher />
       </div>
       <div>
-        <ClearToggler clearAllTodos={onClearShakingClass} />
+        <ClearTodosToggler clearAllTodos={onClearShakingClass} />
       </div>
     </div>
   )

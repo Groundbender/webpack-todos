@@ -1,7 +1,7 @@
 import { ActionTypes, TodosActions } from "./todos-types";
 import { v4 as uid } from 'uuid';
 
-const initialState: Todo[] = [];
+const todosInitialState: Todo[] = [];
 export const todos = (state = [], action: TodosActions) => {
   switch (action.type) {
     case ActionTypes.ADD_TODO: {
@@ -28,7 +28,7 @@ export const todos = (state = [], action: TodosActions) => {
       );
     }
     case ActionTypes.CLEAR_TODOS: {
-      return initialState;
+      return todosInitialState;
     }
     
     default: {
