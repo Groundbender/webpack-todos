@@ -1,5 +1,5 @@
 import classnames from "classnames"
-import * as styles from './Button.module.scss'
+import styles from './Button.module.scss'
 
 type ButtonTheme = 'primary' | 'outline' | 'square' | 'rounded'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

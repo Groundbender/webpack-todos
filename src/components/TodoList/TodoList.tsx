@@ -2,7 +2,7 @@ import { TodoItem } from '../TodoItem'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import { TodoListEmpty } from '../TodoListEmpty/TodoListEmpty'
 import { selectFilteredAndSearchedTodos } from '@/store/todos/todos-selectors'
-import * as styles from './TodoList.module.scss'
+import styles from './TodoList.module.scss'
 interface TodoListProps {
   setSelectedTodoOnEdit: (todo: Todo) => void
   openEditTodosModal: () => void

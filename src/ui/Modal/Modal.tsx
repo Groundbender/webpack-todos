@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom"
 import { MouseEvent, MouseEventHandler } from "react"
 import classnames from "classnames"
-import * as styles from "./Modal.module.scss"
+import styles from "./Modal.module.scss"
 interface ModalProps {
   children: React.ReactNode;
   isOpen: boolean;

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import classnames from "classnames"
 import { deleteTodo, toggleTodo } from "@/store/todos/todos-actions"
 import toast from "react-hot-toast"
-import * as styles from "./TodoItem.module.scss"
+import styles from "./TodoItem.module.scss"
 interface TodoItemProps {
   todo: Todo,
   setSelectedTodoOnEdit: (todo: Todo) => void

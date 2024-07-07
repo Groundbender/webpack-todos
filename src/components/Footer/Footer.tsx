@@ -1,7 +1,7 @@
 import { Button } from '@/ui/Button'
 import PlusIcon from '@/assets/PlusIcon.svg'
 import { FC, MouseEventHandler } from 'react'
-import * as styles from './Footer.module.scss'
+import styles from './Footer.module.scss'
 interface FooterProps {
   openAddTodosModal: MouseEventHandler<HTMLButtonElement>
 }

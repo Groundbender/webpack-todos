@@ -2,7 +2,7 @@ import { useTheme } from "@/hooks/useTheme"
 import EmptyDark from "../../assets/empty-dark.png"
 import EmptyLight from "../../assets/empty-light.png"
 import { Theme } from "@/context/ThemeContext/ThemeContext"
-import * as styles from "./TodoListEmpty.module.scss"
+import styles from "./TodoListEmpty.module.scss"
 
 export const TodoListEmpty = () => {
   const { theme } = useTheme()

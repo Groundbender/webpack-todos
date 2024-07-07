@@ -10,7 +10,7 @@ import { SortType } from "@/store/sort/sort-types"
 import { ClearTodosSwitch } from "../ClearTodosSwitch"
 import { setSearch } from "@/store/search/search-actions"
 import { setSortType } from "@/store/sort/sort-actions"
-import * as styles from "./TodosFilters.module.scss"
+import styles from "./TodosFilters.module.scss"
 
 const sortTodosSelectOptions = [
   {

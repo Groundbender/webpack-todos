@@ -1,5 +1,5 @@
 import { SelectHTMLAttributes } from 'react'
-import * as styles from './Select.module.scss'
+import styles from './Select.module.scss'
 
 type Option = {
   value: string

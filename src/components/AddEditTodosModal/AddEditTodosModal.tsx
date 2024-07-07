@@ -6,7 +6,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addTodo, editTodoTitle } from "@/store/todos/todos-actions"
 import toast from "react-hot-toast"
-import * as styles from './AddEditTodosModal.module.scss'
+import styles from './AddEditTodosModal.module.scss'
 
 interface AddEditTodosModalProps {
   isOpenAddEditTodosModal: boolean,

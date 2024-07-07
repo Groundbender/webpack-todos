@@ -1,4 +1,4 @@
-import * as styles from "./Input.module.scss"
+import styles from "./Input.module.scss"
 import SearchIcon from "../../assets/SearchIcon.svg"
 import classnames from "classnames"
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
