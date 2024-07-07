@@ -1,15 +1,15 @@
 import { useMemo, useState } from "react";
-import { THEME_FROM_LOCAL_STORAGE, Theme, ThemeContext } from "./ThemeContext"
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext"
+import { loadDataFromLocalStorage } from "@/helpers/local-storage";
 interface ThemeProviderProps {
   children: React.ReactNode
 }
 
-const themeFromLocalStorage = localStorage.getItem(THEME_FROM_LOCAL_STORAGE) ||
+const themeFromLocalStorage = loadDataFromLocalStorage(LOCAL_STORAGE_THEME_KEY) ||
   (window.matchMedia('(prefers-color-scheme: dark)').matches
     ? Theme.DARK
     : Theme.LIGHT)
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-
   const [theme, setTheme] = useState<Theme>(themeFromLocalStorage as Theme);
 
   const defaultThemeProps = useMemo(() => ({

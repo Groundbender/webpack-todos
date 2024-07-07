@@ -12,7 +12,7 @@ export const toggleTodo = (id: string) => ({
   type: ActionTypes.TOGGLE_TODO,
   payload: id
 });
-export const editTodo = (payload: { id: string, title: string }) => ({
+export const editTodoTitle = (payload: { id: string, title: string }) => ({
   type: ActionTypes.EDIT_TODO,
   payload
 });

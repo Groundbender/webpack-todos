@@ -4,26 +4,6 @@
   box-sizing: border-box;
 }
 
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-2px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(2px);
-  }
-}
-
 :root {
   --container: 750px;
 
@@ -51,7 +31,6 @@
   --transition-default: all 0.4s ease;
 
   --overlay-color: rgba(0, 0, 0, 0.5);
-  --shake-animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
 body {
@@ -62,19 +41,15 @@ body {
   --bg-color: rgb(247, 247, 247);
   --primary-color: rgb(37, 37, 37);
   --secondary-text-color: var(--secondary-color);
-  --icon-color: var(--checked-color);
-  --checked-color: rgba(37, 37, 37, 0.5);
+  --icon-color: var(--completed-color);
+  --completed-color: rgba(37, 37, 37, 0.5);
 }
 .app_dark {
   --bg-color: rgb(37, 37, 37);
   --primary-color: rgb(247, 247, 247);
   --secondary-text-color: var(--primary-color);
   --icon-color: var(--light-color);
-  --checked-color: rgba(255, 255, 255, 0.5);
-}
-
-.shake {
-  animation: var(--shake-animation);
+  --completed-color: rgba(255, 255, 255, 0.5);
 }
 
 .app {
@@ -83,6 +58,14 @@ body {
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 560px) {
+    padding: 20px;
+  }
 }
 
 .container {
@@ -93,31 +76,13 @@ body {
 
   display: flex;
   flex-direction: column;
-}
 
-.btn-text {
-  font-weight: var(--font-weight-bold);
-}
-
-@media (max-width: 830px) {
-  .app {
-    flex-direction: column;
-  }
-}
-@media (max-width: 730px) {
-  .container {
+  @media (max-width: 730px) {
     width: 80%;
   }
-}
-@media (max-width: 560px) {
-  .container {
-    width: 90%;
-  }
 
-  .app {
-    padding: 20px;
-  }
-  .conatiner {
+  @media (max-width: 560px) {
+    width: 90%;
     padding: 0;
   }
 }

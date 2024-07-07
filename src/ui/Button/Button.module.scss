@@ -6,7 +6,7 @@
   justify-content: center;
   transition: var(--transition-default);
   cursor: pointer;
-  font-weight: var(--font-weight-default);
+  font-weight: var(--font-weight-bold);
 }
 
 .primary {
@@ -25,7 +25,6 @@
   color: var(--secondary-color);
   width: 97px;
   height: 38px;
-  font-weight: var(--font-weight-default);
 }
 
 .square {

@@ -2,7 +2,7 @@ import { ActionTypes, TodosActions } from "./todos-types";
 import { v4 as uid } from 'uuid';
 
 const todosInitialState: Todo[] = [];
-export const todos = (state = [], action: TodosActions) => {
+export const todosReducer = (state = [], action: TodosActions) => {
   switch (action.type) {
     case ActionTypes.ADD_TODO: {
       return [

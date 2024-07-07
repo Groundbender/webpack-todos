@@ -1,17 +1,15 @@
-.filters__container {
+.container {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
 }
 
-.filters__search {
+.search {
   width: 60%;
   max-width: 570px;
   height: 38px;
-}
 
-@media (max-width: 730px) {
-  .filters__search {
+  @media (max-width: 730px) {
     width: 100%;
   }
 }

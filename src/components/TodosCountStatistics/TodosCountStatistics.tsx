@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/hooks/useAppSelector"
 import { selectActiveTodosCount, selectDoneTodosCount, selectTodosCount } from "@/store/todos/todos-selectors"
-import * as styles from "./Statistics.module.scss"
-export const Statistics = () => {
+import * as styles from "./TodosCountStatistics.module.scss"
 
+export const TodosCountStatistics = () => {
   const allTodosCount = useAppSelector(selectTodosCount)
   const activeTodosCount = useAppSelector(selectActiveTodosCount)
   const doneTodosCount = useAppSelector(selectDoneTodosCount)

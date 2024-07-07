@@ -4,7 +4,6 @@ export enum ActionTypes {
   DELETE_TODO = "DELETE_TODO",
   EDIT_TODO = "EDIT_TODO",
   CLEAR_TODOS = "CLEAR_TODOS",
-  
 }
 
 export const LOCAL_STORAGE_TODOS_KEY = "todos"
@@ -27,6 +26,5 @@ interface EditTodoAction {
 interface ClearTodosAction {
   type: ActionTypes.CLEAR_TODOS
 }
-
 
 export type TodosActions = AddTodoAction | DeleteTodoAction | ToggleTodoAction | EditTodoAction | ClearTodosAction

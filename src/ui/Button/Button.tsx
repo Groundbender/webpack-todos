@@ -1,22 +1,17 @@
-import { classNames } from '@/helpers/classNames';
+import classnames from "classnames"
 import * as styles from './Button.module.scss'
 
-export enum ButtonTheme {
-  PRIMARY = 'primary',
-  OUTLINE = 'outline',
-  SQUARE = 'square',
-  ROUNED = 'rounded'
-}
+type ButtonTheme = 'primary' | 'outline' | 'square' | 'rounded'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   theme: ButtonTheme;
 }
 export const Button = (props: ButtonProps) => {
 
-  const { children, theme, ...others } = props
+  const { children, theme, ...buttonProps } = props
 
   return (
-    <button className={classNames(styles.btn, {}, [styles[theme]])} {...others}>
+    <button className={classnames(styles.btn, styles[theme])} {...buttonProps}>
       {children}
     </button>
   )

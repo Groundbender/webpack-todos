@@ -1,13 +1,11 @@
 import { createPortal } from "react-dom"
 import { MouseEvent, MouseEventHandler } from "react"
-import { classNames } from "@/helpers/classNames"
+import classnames from "classnames"
 import * as styles from "./Modal.module.scss"
-
-
 interface ModalProps {
-  children: React.ReactNode
-  isOpen: boolean,
-  handleCloseModal: MouseEventHandler<Element>
+  children: React.ReactNode;
+  isOpen: boolean;
+  handleCloseModal: MouseEventHandler<Element>;
 }
 
 export const Modal = ({ children, isOpen, handleCloseModal }: ModalProps) => {
@@ -17,7 +15,7 @@ export const Modal = ({ children, isOpen, handleCloseModal }: ModalProps) => {
   }
 
   return createPortal(
-    <div className={classNames(styles.modal, {
+    <div className={classnames(styles.modal, {
       [styles.modal__opened]: isOpen
     })}>
       <div onClick={onClickOutside} className={styles.modal__overlay}>

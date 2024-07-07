@@ -9,10 +9,10 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: Option[]
 }
 export const Select = (props: SelectProps) => {
+  const { options, ...selectProps } = props
 
-  const { options, ...others } = props
   return (
-    <select {...others} className={styles.select}>
+    <select {...selectProps} className={styles.select}>
       {options.map((option: Option) => (
         <option value={option.value} key={option.value}>
           {option.label}

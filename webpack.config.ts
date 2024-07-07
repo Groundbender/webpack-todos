@@ -3,12 +3,8 @@ import path from 'path';
  // Подключаем плагин HtmlWebpackPlugin для генерации HTML-файла
 import HtmlWebpackPlugin from 'html-webpack-plugin'; 
  // Импортируем интерфейс Configuration из модуля webpack
-import { Configuration as WebpackConfiguration, ProvidePlugin } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
-
-interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
-}
+import { Configuration , ProvidePlugin } from "webpack";
+import { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
 const config: Configuration = {
    entry: './src/index.tsx', // Указываем точку входа для сборки
@@ -67,17 +63,15 @@ const config: Configuration = {
                 name: "convertColors",
                 params: {
                   currentColor: true
-  
                 }
-              }
-             ]
+               }
+              ]
+             }
             }
-          }
-         } 
-        ],
-      }
-       
-     ]
+           } 
+          ],
+        }
+      ]
    },
    devServer: {
     static: {

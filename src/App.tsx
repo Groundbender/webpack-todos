@@ -1,43 +1,42 @@
 import { useState } from "react"
-import { Filters } from "./components/Filters/Filters"
 import { Footer } from "./components/Footer"
-import { Title } from "./components/Title"
+import { Title } from "./ui/Title"
 import { TodoList } from "./components/TodoList"
-import { TodosModal } from "./components/TodosModal"
-import { Statistics } from "./components/Statistics/Statistics"
+import { AddEditTodosModal } from "./components/AddEditTodosModal"
+import { TodosCountStatistics } from "./components/TodosCountStatistics/TodosCountStatistics"
 import { useAppSelector } from "./hooks/useAppSelector"
 import { selectTodosCount } from "./store/todos/todos-selectors"
 import { Toaster } from "react-hot-toast"
-
+import { TodosFilters } from "./components/TodosFilters"
 
 const App = () => {
-
-  const [isOpenTodosModal, setIsOpenTodosModal] = useState<boolean>(false);
-  const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null);
+  const [isOpenAddEditTodosModal, setIsOpenAddEditTodosModal] = useState(false);
+  const [selectedTodoOnEdit, setSelectedTodoOnEdit] = useState<Todo | null>(null);
   const todosCount = useAppSelector(selectTodosCount)
-  const handleOpenTodosModal = () => {
-    setIsOpenTodosModal(true)
+  
+  const openAddEditTodosModal = () => {
+    setIsOpenAddEditTodosModal(true)
   }
-  const handleCloseTodosModal = () => {
-    setIsOpenTodosModal(false)
-    setSelectedTodo(null)
+  const closeAddEditTodosModal = () => {
+    setIsOpenAddEditTodosModal(false)
+    setSelectedTodoOnEdit(null)
   }
 
   return (
     <div className="app">
-      {todosCount !== 0 && <Statistics key={todosCount} />}
+      {!!todosCount && <TodosCountStatistics key={todosCount} />}
       <main className="container">
         <Title>
           TODO LIST
         </Title>
-        <Filters />
-        <TodoList handleOpenTodosModal={handleOpenTodosModal} setSelectedTodo={setSelectedTodo} />
-        <Footer handleOpenTodosModal={handleOpenTodosModal} />
+        <TodosFilters />
+        <TodoList openEditTodosModal={openAddEditTodosModal} setSelectedTodoOnEdit={setSelectedTodoOnEdit} />
+        <Footer openAddTodosModal={openAddEditTodosModal} />
       </main>
-      <TodosModal isOpen={isOpenTodosModal}
-        handleCloseModal={handleCloseTodosModal}
-        selectedTodo={selectedTodo}
-        key={selectedTodo?.id || 0}
+      <AddEditTodosModal isOpenAddEditTodosModal={isOpenAddEditTodosModal}
+        closeAddEditTodosModal={closeAddEditTodosModal}
+        selectedTodoOnEdit={selectedTodoOnEdit}
+        key={selectedTodoOnEdit?.id || 0}
       />
       <Toaster
         position="top-right"
