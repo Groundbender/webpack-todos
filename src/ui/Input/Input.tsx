@@ -6,7 +6,6 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isShaking?: boolean
 }
 export const Input = (props: InputProps) => {
-
   const { className, isShaking, ...inputProps } = props
 
   return (

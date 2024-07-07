@@ -7,7 +7,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme: ButtonTheme;
 }
 export const Button = (props: ButtonProps) => {
-
   const { children, theme, ...buttonProps } = props
 
   return (

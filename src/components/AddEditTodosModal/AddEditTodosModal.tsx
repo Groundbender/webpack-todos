@@ -19,7 +19,6 @@ export const AddEditTodosModal = ({ isOpenAddEditTodosModal, closeAddEditTodosMo
 
   const handleAddEditTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!todoTitle.trim()) {
       toast.error("Title is required")
       return
