@@ -9,10 +9,10 @@ export const loadDataFromLocalStorage = (key: string) => {
     return undefined;
   }
 };
+
 export const saveDataToLocalStorage = <T>(key: string, state: T) => {
   try {
     const stateToBeSaved = JSON.stringify(state);
-
     localStorage.setItem(key, stateToBeSaved);
   } catch (error) {
     console.error(error);

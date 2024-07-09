@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Footer } from "./components/Footer"
 import { Title } from "./ui/Title"
 import { TodoList } from "./components/TodoList"
-import { AddEditTodosModal } from "./components/AddEditTodosModal"
+import { AddOrEditTodoModal } from "./components/AddOrEditTodoModal"
 import { TodosCountStatistics } from "./components/TodosCountStatistics/TodosCountStatistics"
 import { useAppSelector } from "./hooks/useAppSelector"
 import { selectTodosCount } from "./store/todos/todos-selectors"
@@ -10,34 +10,39 @@ import { Toaster } from "react-hot-toast"
 import { TodosFilters } from "./components/TodosFilters"
 
 const App = () => {
-  const [isOpenAddEditTodosModal, setIsOpenAddEditTodosModal] = useState(false);
+  const [isOpenAddOrEditTodoModal, setIsOpenAddOrEditTodoModal] = useState(false);
   const [selectedTodoOnEdit, setSelectedTodoOnEdit] = useState<Todo | null>(null);
   const todosCount = useAppSelector(selectTodosCount)
-  
-  const openAddEditTodosModal = () => {
-    setIsOpenAddEditTodosModal(true)
+
+  const handleOpenAddOrEditTodoModal = () => {
+    setIsOpenAddOrEditTodoModal(true)
   }
-  const closeAddEditTodosModal = () => {
-    setIsOpenAddEditTodosModal(false)
+
+  const handleCloseAddOrEditTodoModal = () => {
+    setIsOpenAddOrEditTodoModal(false)
     setSelectedTodoOnEdit(null)
   }
 
   return (
     <div className="app">
-      {!!todosCount && <TodosCountStatistics key={todosCount} />}
+      {!!todosCount && <TodosCountStatistics />}
       <main className="container">
         <Title>
           TODO LIST
         </Title>
         <TodosFilters />
-        <TodoList openEditTodosModal={openAddEditTodosModal} setSelectedTodoOnEdit={setSelectedTodoOnEdit} />
-        <Footer openAddTodosModal={openAddEditTodosModal} />
+        <TodoList
+          openEditTodoModal={handleOpenAddOrEditTodoModal}
+          setSelectedTodoOnEdit={setSelectedTodoOnEdit}
+        />
+        <Footer openAddTodoModal={handleOpenAddOrEditTodoModal} />
       </main>
-      <AddEditTodosModal isOpenAddEditTodosModal={isOpenAddEditTodosModal}
-        closeAddEditTodosModal={closeAddEditTodosModal}
-        selectedTodoOnEdit={selectedTodoOnEdit}
-        key={selectedTodoOnEdit?.id || 0}
-      />
+      {isOpenAddOrEditTodoModal &&
+        <AddOrEditTodoModal
+          isOpenAddOrEditTodoModal={isOpenAddOrEditTodoModal}
+          closeAddOrEditTodoModal={handleCloseAddOrEditTodoModal}
+          selectedTodoOnEdit={selectedTodoOnEdit}
+        />}
       <Toaster
         position="top-right"
         gutter={12}

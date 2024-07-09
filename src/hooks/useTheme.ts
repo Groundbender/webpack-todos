@@ -1,6 +1,7 @@
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "@/context/ThemeContext/ThemeContext"
 import { saveDataToLocalStorage } from "@/helpers/local-storage";
 import { useContext, useEffect } from "react"
+
 export const useTheme = () => {
   const { theme, setTheme }  = useContext(ThemeContext);
   

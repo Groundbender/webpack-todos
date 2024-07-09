@@ -2,21 +2,21 @@ import { createPortal } from "react-dom"
 import { MouseEvent, MouseEventHandler } from "react"
 import classnames from "classnames"
 import styles from "./Modal.module.scss"
+
 interface ModalProps {
   children: React.ReactNode;
   isOpen: boolean;
-  handleCloseModal: MouseEventHandler<Element>;
+  onClose: MouseEventHandler<Element>;
 }
 
-export const Modal = ({ children, isOpen, handleCloseModal }: ModalProps) => {
-
+export const Modal = ({ children, isOpen, onClose }: ModalProps) => {
   const onClickOutside = (event: MouseEvent) => {
-    handleCloseModal(event)
+    onClose(event)
   }
 
   return createPortal(
     <div className={classnames(styles.modal, {
-      [styles.modal__opened]: isOpen
+      [styles.open]: isOpen
     })}>
       <div onClick={onClickOutside} className={styles.modal__overlay}>
         <div onClick={event => event.stopPropagation()} className={styles.modal__content}>

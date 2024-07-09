@@ -6,14 +6,17 @@ import classnames from "classnames"
 import { deleteTodo, toggleTodo } from "@/store/todos/todos-actions"
 import toast from "react-hot-toast"
 import styles from "./TodoItem.module.scss"
+
 interface TodoItemProps {
   todo: Todo,
   setSelectedTodoOnEdit: (todo: Todo) => void
-  openEditTodosModal: () => void
+  openEditTodoModal: () => void
 }
-export const TodoItem = ({ todo, setSelectedTodoOnEdit, openEditTodosModal }: TodoItemProps) => {
+
+export const TodoItem = ({ todo, setSelectedTodoOnEdit, openEditTodoModal }: TodoItemProps) => {
   const dispatch = useDispatch()
-  const updateTodoCompleted = () => {
+
+  const handleToggleCompleteTodo = () => {
     dispatch(toggleTodo(todo.id))
     toast.success("Todo successfully updated")
   }
@@ -25,13 +28,13 @@ export const TodoItem = ({ todo, setSelectedTodoOnEdit, openEditTodosModal }: To
 
   const onEditTodoTitle = () => {
     setSelectedTodoOnEdit(todo)
-    openEditTodosModal()
+    openEditTodoModal()
   }
 
   return (
     <li className={styles.container}>
       <div className={styles.todo__info}>
-        <Checkbox onChange={updateTodoCompleted} checked={todo.isDone} />
+        <Checkbox onChange={handleToggleCompleteTodo} checked={todo.isDone} />
         <p className={classnames(styles.todo__title, { [styles.todo__title_completed]: todo.isDone })}>
           {todo.title}
         </p>

@@ -1,10 +1,12 @@
 import styles from "./Input.module.scss"
 import SearchIcon from "../../assets/SearchIcon.svg"
 import classnames from "classnames"
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string
   isShaking?: boolean
 }
+
 export const Input = (props: InputProps) => {
   const { className, isShaking, ...inputProps } = props
 
@@ -14,7 +16,7 @@ export const Input = (props: InputProps) => {
         [styles.input_shaking]: !!isShaking
       })} type="text" />
       {props.type === "search" &&
-        <SearchIcon className={styles.input__search__icon}
+        <SearchIcon className={styles["input-search-icon"]}
         />}
     </div>
   )

@@ -5,19 +5,22 @@ import { Button } from "@/ui/Button"
 import { useDispatch } from "react-redux";
 
 interface ClearTodosSwitchProps {
-  setSearchInputIsShaking: (value: boolean) => void
+  setSearchTodosInputIsShaking: (value: boolean) => void
 }
-export const ClearTodosSwitch = ({ setSearchInputIsShaking }: ClearTodosSwitchProps) => {
+
+const SHAKING_INPUT_DELAY_MS = 500;
+
+export const ClearTodosSwitch = ({ setSearchTodosInputIsShaking }: ClearTodosSwitchProps) => {
   const dispatch = useDispatch();
   const allTodosCount = useAppSelector(selectTodosCount)
 
   const handleClearAllTodos = () => {
     if (!allTodosCount) {
-      setSearchInputIsShaking(true)
+      setSearchTodosInputIsShaking(true)
 
       setTimeout(() => {
-        setSearchInputIsShaking(false)
-      }, 500)
+        setSearchTodosInputIsShaking(false)
+      }, SHAKING_INPUT_DELAY_MS)
       return
     }
     dispatch(clearTodos())

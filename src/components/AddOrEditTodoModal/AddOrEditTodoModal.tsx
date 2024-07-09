@@ -6,18 +6,18 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addTodo, editTodoTitle } from "@/store/todos/todos-actions"
 import toast from "react-hot-toast"
-import styles from './AddEditTodosModal.module.scss'
+import styles from './AddOrEditTodoModal.module.scss'
 
-interface AddEditTodosModalProps {
-  isOpenAddEditTodosModal: boolean,
-  closeAddEditTodosModal: () => void,
+interface AddOrEditTodoModalProps {
+  isOpenAddOrEditTodoModal: boolean,
+  closeAddOrEditTodoModal: () => void,
   selectedTodoOnEdit: Todo | null
 }
-export const AddEditTodosModal = ({ isOpenAddEditTodosModal, closeAddEditTodosModal, selectedTodoOnEdit }: AddEditTodosModalProps) => {
+export const AddOrEditTodoModal = ({ isOpenAddOrEditTodoModal, closeAddOrEditTodoModal, selectedTodoOnEdit }: AddOrEditTodoModalProps) => {
   const [todoTitle, setTodoTitle] = useState(() => selectedTodoOnEdit?.title || "")
   const dispatch = useDispatch()
 
-  const handleAddEditTodo = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAddOrEditTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!todoTitle.trim()) {
       toast.error("Title is required")
@@ -31,25 +31,25 @@ export const AddEditTodosModal = ({ isOpenAddEditTodosModal, closeAddEditTodosMo
       dispatch(addTodo(todoTitle))
       toast.success("Todo successfully added")
     }
-    closeAddEditTodosModal()
+    closeAddOrEditTodoModal()
     setTodoTitle("")
   }
 
-  const onCloseAddEditTodosModal = () => {
-    closeAddEditTodosModal()
+  const onCloseAddOrEditTodosModal = () => {
+    closeAddOrEditTodoModal()
     setTodoTitle("")
   }
 
   return (
-    <Modal isOpen={isOpenAddEditTodosModal} handleCloseModal={onCloseAddEditTodosModal}>
+    <Modal isOpen={isOpenAddOrEditTodoModal} onClose={onCloseAddOrEditTodosModal}>
       <>
         <Title>
           {selectedTodoOnEdit ? "EDIT NOTE" : "ADD NOTE"}
         </Title>
-        <form onSubmit={handleAddEditTodo}>
+        <form onSubmit={handleAddOrEditTodo}>
           <Input value={todoTitle} onChange={(e) => setTodoTitle(e.target.value)} />
           <div className={styles.modal__footer}>
-            <Button type="button" onClick={onCloseAddEditTodosModal} theme="outline">
+            <Button type="button" onClick={onCloseAddOrEditTodosModal} theme="outline">
               <span>CANCEL</span>
             </Button>
             <Button type="submit" theme="primary">

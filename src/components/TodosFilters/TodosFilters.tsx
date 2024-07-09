@@ -12,7 +12,12 @@ import { setSearch } from "@/store/search/search-actions"
 import { setSortType } from "@/store/sort/sort-actions"
 import styles from "./TodosFilters.module.scss"
 
-const sortTodosSelectOptions = [
+type SortTodosSelectOptionType = {
+  value: SortType
+  label: Capitalize<SortType>
+}
+
+const sortTodosSelectOptions: SortTodosSelectOptionType[] = [
   {
     value: "all",
     label: "All"
@@ -28,7 +33,7 @@ const sortTodosSelectOptions = [
 ]
 
 export const TodosFilters = () => {
-  const [searchInputIsShaking, setSearchInputIsShaking] = useState(false)
+  const [searchTodosInputIsShaking, setSearchTodosInputIsShaking] = useState(false)
   const sortTodosValue = useAppSelector(selectSortType);
   const searchTodosValue = useAppSelector(selectSearchValue);
   const dispatch = useDispatch();
@@ -47,12 +52,12 @@ export const TodosFilters = () => {
         value={searchTodosValue}
         onChange={handleSearchTodos}
         type="search"
-        isShaking={searchInputIsShaking}
+        isShaking={searchTodosInputIsShaking}
         className={styles.search}
       />
       <Select options={sortTodosSelectOptions} value={sortTodosValue} onChange={handleSortTodos} />
       <ThemeSwitcher />
-      <ClearTodosSwitch setSearchInputIsShaking={setSearchInputIsShaking} />
+      <ClearTodosSwitch setSearchTodosInputIsShaking={setSearchTodosInputIsShaking} />
     </div>
   )
 }

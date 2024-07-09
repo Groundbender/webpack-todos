@@ -17,7 +17,7 @@
 .todo__info {
   display: flex;
   align-items: center;
-  gap: 17px;
+  column-gap: 17px;
 }
 
 .todo__title {
@@ -27,6 +27,7 @@
   text-transform: uppercase;
   font-weight: var(--font-weight-default);
 }
+
 .todo__title_completed {
   text-decoration: line-through;
   color: var(--completed-color);

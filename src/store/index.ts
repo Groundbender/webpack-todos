@@ -5,6 +5,7 @@ import { loadDataFromLocalStorage, saveDataToLocalStorage } from "@/helpers/loca
 
 export const composeEnhancers =
   (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+  
 export const configureStore = () => {
   const persistedState = loadDataFromLocalStorage(LOCAL_STORAGE_TODOS_KEY);
   const store = createStore(

@@ -5,9 +5,11 @@ type Option = {
   value: string
   label: string
 }
+
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: Option[]
 }
+
 export const Select = (props: SelectProps) => {
   const { options, ...selectProps } = props
 
