@@ -13,6 +13,7 @@ interface AddOrEditTodoModalProps {
   closeAddOrEditTodoModal: () => void,
   selectedTodoOnEdit: Todo | null
 }
+
 export const AddOrEditTodoModal = ({ isOpenAddOrEditTodoModal, closeAddOrEditTodoModal, selectedTodoOnEdit }: AddOrEditTodoModalProps) => {
   const [todoTitle, setTodoTitle] = useState(() => selectedTodoOnEdit?.title || "")
   const dispatch = useDispatch()
