@@ -31,7 +31,6 @@ export const todosReducer = (state = [], action: TodosActions) => {
     case ActionTypes.CLEAR_TODOS: {
       return todosInitialState;
     }
-    
     default: {
       return state;
     }
