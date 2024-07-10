@@ -16,7 +16,7 @@ export const Input = (props: InputProps) => {
         [styles.input_shaking]: !!isShaking
       })} type="text" />
       {props.type === "search" &&
-        <SearchIcon className={styles["input-search-icon"]}
+        <SearchIcon className={styles.inputSearchIcon}
         />}
     </div>
   )

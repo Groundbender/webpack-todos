@@ -9,11 +9,11 @@ import styles from "./TodoItem.module.scss"
 
 interface TodoItemProps {
   todo: Todo,
-  setSelectedTodoOnEdit: (todo: Todo) => void
+  setEditedTodo: (todo: Todo) => void
   openEditTodoModal: () => void
 }
 
-export const TodoItem = ({ todo, setSelectedTodoOnEdit, openEditTodoModal }: TodoItemProps) => {
+export const TodoItem = ({ todo, setEditedTodo, openEditTodoModal }: TodoItemProps) => {
   const dispatch = useDispatch()
 
   const handleToggleCompleteTodo = () => {
@@ -27,7 +27,7 @@ export const TodoItem = ({ todo, setSelectedTodoOnEdit, openEditTodoModal }: Tod
   }
 
   const onEditTodoTitle = () => {
-    setSelectedTodoOnEdit(todo)
+    setEditedTodo(todo)
     openEditTodoModal()
   }
 

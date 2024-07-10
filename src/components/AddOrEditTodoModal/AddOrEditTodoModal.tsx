@@ -15,7 +15,7 @@ interface AddOrEditTodoModalProps {
 }
 
 export const AddOrEditTodoModal = ({ isOpenAddOrEditTodoModal, closeAddOrEditTodoModal, selectedTodoOnEdit }: AddOrEditTodoModalProps) => {
-  const [todoTitle, setTodoTitle] = useState(() => selectedTodoOnEdit?.title || "")
+  const [todoTitle, setTodoTitle] = useState(selectedTodoOnEdit?.title || "")
   const dispatch = useDispatch()
 
   const handleAddOrEditTodo = (e: React.FormEvent<HTMLFormElement>) => {

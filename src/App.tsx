@@ -11,7 +11,7 @@ import { TodosFilters } from "./components/TodosFilters"
 
 const App = () => {
   const [isOpenAddOrEditTodoModal, setIsOpenAddOrEditTodoModal] = useState(false);
-  const [selectedTodoOnEdit, setSelectedTodoOnEdit] = useState<Todo | null>(null);
+  const [editedTodo, setEditedTodo] = useState<Todo | null>(null);
   const todosCount = useAppSelector(selectTodosCount)
 
   const handleOpenAddOrEditTodoModal = () => {
@@ -20,7 +20,7 @@ const App = () => {
 
   const handleCloseAddOrEditTodoModal = () => {
     setIsOpenAddOrEditTodoModal(false)
-    setSelectedTodoOnEdit(null)
+    setEditedTodo(null)
   }
 
   return (
@@ -33,7 +33,7 @@ const App = () => {
         <TodosFilters />
         <TodoList
           openEditTodoModal={handleOpenAddOrEditTodoModal}
-          setSelectedTodoOnEdit={setSelectedTodoOnEdit}
+          setEditedTodo={setEditedTodo}
         />
         <Footer openAddTodoModal={handleOpenAddOrEditTodoModal} />
       </main>
@@ -41,7 +41,7 @@ const App = () => {
         <AddOrEditTodoModal
           isOpenAddOrEditTodoModal={isOpenAddOrEditTodoModal}
           closeAddOrEditTodoModal={handleCloseAddOrEditTodoModal}
-          selectedTodoOnEdit={selectedTodoOnEdit}
+          selectedTodoOnEdit={editedTodo}
         />}
       <Toaster
         position="top-right"

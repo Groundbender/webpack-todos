@@ -8,7 +8,7 @@ export const TodoListEmpty = () => {
   const { theme } = useTheme()
 
   return (
-    <div className={styles["empty-todo-list"]}>
+    <div className={styles.emptyTodoList}>
       <img src={theme === Theme.DARK
         ? EmptyDark : EmptyLight} alt="Empty" width={220} height={174} />
       <h3 className={styles.empty__title}>Empty...</h3>
