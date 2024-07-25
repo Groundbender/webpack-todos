@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.search {
+  width: 60%;
+  max-width: 570px;
+  height: 38px;
+
+  @media (max-width: 730px) {
+    width: 100%;
+  }
+}
