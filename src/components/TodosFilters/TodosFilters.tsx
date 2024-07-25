@@ -34,6 +34,7 @@ const sortTodosSelectOptions: SortTodosSelectOptionType[] = [
 
 export const TodosFilters = () => {
   const [searchTodosInputIsShaking, setSearchTodosInputIsShaking] = useState(false)
+
   const sortTodosValue = useAppSelector(selectSortType);
   const searchTodosValue = useAppSelector(selectSearchValue);
   const dispatch = useDispatch();

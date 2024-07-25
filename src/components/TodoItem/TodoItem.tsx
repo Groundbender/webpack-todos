@@ -6,11 +6,12 @@ import classnames from "classnames"
 import { deleteTodo, toggleTodo } from "@/store/todos/todos-actions"
 import toast from "react-hot-toast"
 import styles from "./TodoItem.module.scss"
+import { Button } from "@/ui/Button"
 
 interface TodoItemProps {
-  todo: Todo,
-  setEditedTodo: (todo: Todo) => void
-  openEditTodoModal: () => void
+  todo: Todo;
+  setEditedTodo: (todo: Todo) => void;
+  openEditTodoModal: () => void;
 }
 
 export const TodoItem = ({ todo, setEditedTodo, openEditTodoModal }: TodoItemProps) => {
@@ -40,12 +41,12 @@ export const TodoItem = ({ todo, setEditedTodo, openEditTodoModal }: TodoItemPro
         </p>
       </div>
       <div className={styles.todo__actions}>
-        <button onClick={onEditTodoTitle} className={styles.action__btn}>
+        <Button buttonType="transparent" onClick={onEditTodoTitle} className={styles.action__btn}>
           <EditIcon className={styles.icon_edit} width={17} height={17} />
-        </button>
-        <button onClick={onRemoveTodo} className={styles.action__btn}>
+        </Button>
+        <Button buttonType="transparent" onClick={onRemoveTodo} className={styles.action__btn}>
           <DeleteIcon className={styles.icon_delete} width={17} height={17} />
-        </button>
+        </Button >
       </div>
     </li>
   )

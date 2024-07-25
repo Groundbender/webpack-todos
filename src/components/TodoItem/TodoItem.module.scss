@@ -23,7 +23,6 @@
 .todo__title {
   color: var(--primary-color);
   font-size: var(--font-md);
-  letter-spacing: 0%;
   text-transform: uppercase;
   font-weight: var(--font-weight-default);
 }
@@ -42,9 +41,6 @@
 }
 
 .action__btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
   color: var(--icon-color);
 
   &:hover .icon_delete {

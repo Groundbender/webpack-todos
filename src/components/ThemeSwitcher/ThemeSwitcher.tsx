@@ -8,7 +8,7 @@ export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <Button onClick={toggleTheme} theme="square" >
+    <Button onClick={toggleTheme} buttonType="square" >
       {
         theme === Theme.DARK
           ? <LightIcon width={20} height={20} />

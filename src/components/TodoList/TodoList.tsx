@@ -5,8 +5,8 @@ import { selectFilteredAndSearchedTodos } from '@/store/todos/todos-selectors'
 import styles from './TodoList.module.scss'
 
 interface TodoListProps {
-  setEditedTodo: (todo: Todo) => void
-  openEditTodoModal: () => void
+  setEditedTodo: (todo: Todo) => void;
+  openEditTodoModal: () => void;
 }
 
 export const TodoList = ({ setEditedTodo, openEditTodoModal }: TodoListProps) => {

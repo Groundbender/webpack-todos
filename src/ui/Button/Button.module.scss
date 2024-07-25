@@ -49,3 +49,9 @@
     background: var(--secondary-color-hover);
   }
 }
+
+.transparent {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

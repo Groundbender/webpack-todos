@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext"
 import { loadDataFromLocalStorage } from "@/helpers/local-storage";
 
 interface ThemeProviderProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const themeFromLocalStorage = loadDataFromLocalStorage(LOCAL_STORAGE_THEME_KEY) ||
@@ -13,6 +13,10 @@ const themeFromLocalStorage = loadDataFromLocalStorage(LOCAL_STORAGE_THEME_KEY) 
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(themeFromLocalStorage as Theme);
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [theme])
 
   const defaultThemeProps = useMemo(() => ({
     theme, setTheme

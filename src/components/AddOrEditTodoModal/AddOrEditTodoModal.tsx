@@ -9,13 +9,14 @@ import toast from "react-hot-toast"
 import styles from './AddOrEditTodoModal.module.scss'
 
 interface AddOrEditTodoModalProps {
-  isOpenAddOrEditTodoModal: boolean,
-  closeAddOrEditTodoModal: () => void,
-  selectedTodoOnEdit: Todo | null
+  isOpenAddOrEditTodoModal: boolean;
+  closeAddOrEditTodoModal: () => void;
+  selectedTodoOnEdit: Todo | null;
 }
 
 export const AddOrEditTodoModal = ({ isOpenAddOrEditTodoModal, closeAddOrEditTodoModal, selectedTodoOnEdit }: AddOrEditTodoModalProps) => {
   const [todoTitle, setTodoTitle] = useState(selectedTodoOnEdit?.title || "")
+
   const dispatch = useDispatch()
 
   const handleAddOrEditTodo = (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,11 +51,11 @@ export const AddOrEditTodoModal = ({ isOpenAddOrEditTodoModal, closeAddOrEditTod
         <form onSubmit={handleAddOrEditTodo}>
           <Input value={todoTitle} onChange={(e) => setTodoTitle(e.target.value)} />
           <div className={styles.modal__footer}>
-            <Button type="button" onClick={onCloseAddOrEditTodosModal} theme="outline">
-              <span>CANCEL</span>
+            <Button type="button" onClick={onCloseAddOrEditTodosModal} buttonType="outline">
+              CANCEL
             </Button>
-            <Button type="submit" theme="primary">
-              <span>APPLY</span>
+            <Button type="submit" buttonType="primary">
+              APPLY
             </Button>
           </div>
         </form>

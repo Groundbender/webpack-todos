@@ -21,13 +21,15 @@ export const ClearTodosSwitch = ({ setSearchTodosInputIsShaking }: ClearTodosSwi
       setTimeout(() => {
         setSearchTodosInputIsShaking(false)
       }, SHAKING_INPUT_DELAY_MS)
+
       return
     }
+
     dispatch(clearTodos())
   }
 
   return (
-    <Button onClick={handleClearAllTodos} theme="outline">
+    <Button onClick={handleClearAllTodos} buttonType="outline">
       <span> CLEAR</span>
     </Button>
   )

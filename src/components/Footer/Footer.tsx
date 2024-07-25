@@ -4,13 +4,13 @@ import { FC, MouseEventHandler } from 'react'
 import styles from './Footer.module.scss'
 
 interface FooterProps {
-  openAddTodoModal: MouseEventHandler<HTMLButtonElement>
+  openAddTodoModal: () => void
 }
 
 export const Footer: FC<FooterProps> = ({ openAddTodoModal }) => {
   return (
     <footer className={styles.footer}>
-      <Button onClick={openAddTodoModal} theme="rounded">
+      <Button onClick={openAddTodoModal} buttonType="rounded">
         <PlusIcon width={24} height={24} />
       </Button>
     </footer>
